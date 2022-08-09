@@ -1,6 +1,8 @@
 # quiznos
 
-A new Flutter project.
+A new Flutter project made as part of Dev's Club Flutter Membership Drive Task 1.
+
+This is a quiz app made by keeping the task requirements in mind. 
 
 ## Getting Started
 
