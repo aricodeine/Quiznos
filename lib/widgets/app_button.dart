@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiznos/screens/select_topic_screen.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({
@@ -20,7 +19,7 @@ class AppButton extends StatelessWidget {
       style: buttonStyle,
       child: Text(
         text,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
       ),
     );
   }

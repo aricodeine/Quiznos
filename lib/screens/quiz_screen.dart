@@ -26,18 +26,13 @@ class _QuizScreenState extends State<QuizScreen> {
   bool isFinished = false;
 
   void checkCorrectOrNot(String? selected) {
-    questions[questionNumber].questionAnswer == selected
-        ? countCorrect += 1
-        : countIncorrect += 1;
+    questions[questionNumber].questionAnswer == selected ? countCorrect += 1 : countIncorrect += 1;
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    selectedTopic = widget.qTopic == QuizTopic.gk
-        ? 'General Knowledge'
-        : 'Computer Netowrk';
+    selectedTopic = widget.qTopic == QuizTopic.gk ? 'General Knowledge' : 'Computer Netowrk';
     QuestionData questionData = QuestionData(quizTopic: widget.qTopic);
     qLength = questionData.qListLength;
     questions = questionData.getTopicQuestionsList();
@@ -52,7 +47,7 @@ class _QuizScreenState extends State<QuizScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(15.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -70,8 +65,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   ),
                   Text(
                     selectedTopic,
-                    style:
-                        TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -80,21 +74,21 @@ class _QuizScreenState extends State<QuizScreen> {
                   QuestionViewer(
                     question: questions[questionNumber].questionText,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50.0,
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Material(
                       elevation: 20.0,
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(
+                        side: const BorderSide(
                           width: 3.0,
                           color: Color(0xffEB1D36),
                         ),
                         borderRadius: BorderRadius.circular(15.0),
                       ),
-                      color: Color(0xff123865),
+                      color: const Color(0xff123865),
                       child: Column(
                         children: <Widget>[
                           RadioOption(
@@ -107,9 +101,8 @@ class _QuizScreenState extends State<QuizScreen> {
                                 selectedOption = selected;
                               });
                             },
-                            isRightOrWrong:
-                                questions[questionNumber].questionAnswer ==
-                                    questions[questionNumber].options[0],
+                            isRightOrWrong: questions[questionNumber].questionAnswer ==
+                                questions[questionNumber].options[0],
                           ),
                           RadioOption(
                             questions: questions,
@@ -121,9 +114,8 @@ class _QuizScreenState extends State<QuizScreen> {
                                 selectedOption = selected;
                               });
                             },
-                            isRightOrWrong:
-                                questions[questionNumber].questionAnswer ==
-                                    questions[questionNumber].options[1],
+                            isRightOrWrong: questions[questionNumber].questionAnswer ==
+                                questions[questionNumber].options[1],
                           ),
                           RadioOption(
                             questions: questions,
@@ -135,9 +127,8 @@ class _QuizScreenState extends State<QuizScreen> {
                                 selectedOption = selected;
                               });
                             },
-                            isRightOrWrong:
-                                questions[questionNumber].questionAnswer ==
-                                    questions[questionNumber].options[2],
+                            isRightOrWrong: questions[questionNumber].questionAnswer ==
+                                questions[questionNumber].options[2],
                           ),
                           RadioOption(
                             questions: questions,
@@ -149,9 +140,8 @@ class _QuizScreenState extends State<QuizScreen> {
                                 selectedOption = selected;
                               });
                             },
-                            isRightOrWrong:
-                                questions[questionNumber].questionAnswer ==
-                                    questions[questionNumber].options[3],
+                            isRightOrWrong: questions[questionNumber].questionAnswer ==
+                                questions[questionNumber].options[3],
                           ),
                         ],
                       ),
@@ -169,28 +159,25 @@ class _QuizScreenState extends State<QuizScreen> {
                     showDialog(
                         context: context,
                         builder: (_) => CustomAlertDialog(
-                              title:
-                                  'Have you selected an option before checking answer?',
+                              title: 'Have you selected an option before checking answer?',
                               content: 'Select an option first.',
                               actionsList: [
                                 TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(context, 'Okay'),
-                                    child: Text('Okay')),
+                                    onPressed: () => Navigator.pop(context, 'Okay'),
+                                    child: const Text('Okay')),
                               ],
                             ));
                   }
                 },
-                child: Padding(
+                style: ElevatedButton.styleFrom(
+                  primary: const Color(0xffEB4747),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+                ),
+                child: const Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: 10.0,
                   ),
                   child: Text('Check answer'),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: Color(0xffEB4747),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0)),
                 ),
               ),
               ElevatedButton(
@@ -201,14 +188,12 @@ class _QuizScreenState extends State<QuizScreen> {
                     showDialog(
                         context: context,
                         builder: (_) => CustomAlertDialog(
-                              title:
-                                  'Have you selected an option before submitting?',
+                              title: 'Have you selected an option before submitting?',
                               content: 'Select an option first.',
                               actionsList: [
                                 TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(context, 'Okay'),
-                                    child: Text('Okay')),
+                                    onPressed: () => Navigator.pop(context, 'Okay'),
+                                    child: const Text('Okay')),
                               ],
                             ));
                   } else if (qLength - 1 == questionNumber) {
@@ -225,16 +210,17 @@ class _QuizScreenState extends State<QuizScreen> {
                                   'Correct: $countCorrect/$qLength and Incorrect: $countIncorrect/$qLength',
                               actionsList: [
                                 TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(context, 'Okay'),
-                                    child: Text('Okay')),
+                                    onPressed: () => Navigator.pop(context, 'Okay'),
+                                    child: const Text('Okay')),
                               ],
                             ));
                     if (questionNumber == qLength - 1) {
-                      await showModalBottomSheet(
-                        context: context,
-                        builder: (context) => SelectTopicScreen(),
-                      );
+                      if (context.mounted) {
+                        await showModalBottomSheet(
+                          context: context,
+                          builder: (context) => const SelectTopicScreen(),
+                        );
+                      }
                     }
                   } else {
                     checkCorrectOrNot(selectedOption);
@@ -244,26 +230,25 @@ class _QuizScreenState extends State<QuizScreen> {
                     });
                   }
                 },
+                style: ElevatedButton.styleFrom(
+                  primary: const Color(0xffEB4747),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+                ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     vertical: 10.0,
                   ),
                   child: questions.length - 1 != questionNumber
-                      ? Text('Next question')
-                      : Text('End quiz'),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: Color(0xffEB4747),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0)),
+                      ? const Text('Next question')
+                      : const Text('End quiz'),
                 ),
               ),
               AnimatedSwitcher(
-                duration: Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 500),
                 child: Text(
                   '${questionNumber + 1}/3',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 15.0,
                     fontWeight: FontWeight.bold,
                   ),

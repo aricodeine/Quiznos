@@ -17,14 +17,14 @@ class CustomAlertDialog extends StatelessWidget {
     return AlertDialog(
       title: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.w500,
         ),
       ),
       content: Text(content),
       actions: actionsList,
-      backgroundColor: Color(0xff003865),
-      shape: RoundedRectangleBorder(
+      backgroundColor: const Color(0xff003865),
+      shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20.0))),
     );
   }

@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: {
-        '/': (context) => WelcomeScreen(),
+        '/': (context) => const WelcomeScreen(),
       },
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Color(0xff003865),
+        scaffoldBackgroundColor: const Color(0xff003865),
       ),
     );
   }

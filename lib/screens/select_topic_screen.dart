@@ -13,10 +13,10 @@ class _SelectTopicScreenState extends State<SelectTopicScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff00192E),
+      color: const Color(0xff00192E),
       child: Container(
         height: 100.0,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color.fromARGB(255, 19, 58, 80),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(25.0),
@@ -54,7 +54,7 @@ class _SelectTopicScreenState extends State<SelectTopicScreen> {
                   value: value,
                   child: Text(
                     value,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 15.0,
                       fontWeight: FontWeight.bold,
                     ),

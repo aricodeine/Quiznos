@@ -28,11 +28,11 @@ class RadioOption extends StatelessWidget {
       groupValue: selectedOption,
       onChanged: onOptionChanged,
       secondary: AnimatedSwitcher(
-        duration: Duration(milliseconds: 250),
+        duration: const Duration(milliseconds: 250),
         child: Visibility(
           visible: isSubmitted,
-          child: isRightOrWrong ? Icon(Icons.check) : Icon(Icons.clear),
-          key: ValueKey(isRightOrWrong ? Icon(Icons.check) : Icon(Icons.clear)),
+          key: ValueKey(isRightOrWrong ? const Icon(Icons.check) : const Icon(Icons.clear)),
+          child: isRightOrWrong ? const Icon(Icons.check) : const Icon(Icons.clear),
         ),
       ),
     );

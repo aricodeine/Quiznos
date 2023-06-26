@@ -27,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
               animatedTexts: <TypewriterAnimatedText>[
                 TypewriterAnimatedText(
                   'Welcome to Quiznos',
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                     fontSize: 35.0,
                     fontWeight: FontWeight.w900,
                   ),
@@ -35,21 +35,21 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 60.0),
+              padding: const EdgeInsets.symmetric(horizontal: 60.0),
               child: AppButton(
                 text: 'Start Quiz',
                 onPressed: () async {
                   await showModalBottomSheet(
                     context: context,
-                    builder: (context) => SelectTopicScreen(),
+                    builder: (context) => const SelectTopicScreen(),
                   );
                 },
                 buttonStyle: ElevatedButton.styleFrom(
-                  primary: Color(0xffEB4747),
+                  primary: const Color(0xffEB4747),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0)),
                 ),
